@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Admin - Quản lý tài khoản</title>
+    <link rel="stylesheet" type="text/css" href="../css-a/admin.css">
+
+</head>
+
+<body>
+    <div id="header1">
+        <a href="" style="margin-top:12px;margin-left: 20px;">
+            <img width="auto" height="74" src="../img-a/logo.png" alt="">
+        </a>
+        <div id="menu">
+            <div class="item">
+                <a href="">Báo cáo</a>
+            </div>
+            <div class="item">
+                <a href="">Hệ thống</a>
+            </div>
+            <div class="item">
+                <img id='user-img' width="auto" height="45" src="../img-a/user.png" alt="">
+            </div>
+            <p class="item" style="color: #004AAD; margin-left:0px;">i</p>
+
+        </div>
+    </div>
+    <div style="height: 10px;"></div>
+    <div id="header2">
+        <div id="menu">
+            <div class="item">
+                <a style="color: black;
+                        background-color: white;
+                        padding: 2px 3px 2px 3px;
+                        border-radius: 3px" href="users">Quản lý tài khoản</a>
+            </div>
+            <div class="item">
+                <a href="/admin_system.html">Phân quyền hệ thống</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-head">
+                <a href="acc_info.html">Tài khoản</a>
+            </div>
+            <div class="modal-head">
+                <a href="http://127.0.0.1:8000">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <p id="acc-count">Tổng số tài khoản: 25</p> -->
+    <div id="acc-count">
+        <!-- <button onclick="showFilteredResults()">Hiển thị kết quả lọc</button>
+        <button onclick="reset()">Tất cả người dùng</button> -->
+    </div>
+
+    <div id="main">
+        <div class="filter">
+            <h2>Tìm kiếm</h2>
+
+            <form id="filter-form" onsubmit="return false" action="">
+                <br>
+                <label>Họ và tên</label>
+                <input required name="acc-name" type="text">
+                <br>
+                <br>
+
+                <label>Email / SĐT</label>
+                <input required name="acc-mailphone" type="text">
+                <br>
+                <br>
+
+                <label>Loại tài khoản</label>
+                <br>
+                <select id="acc-type" name="acc-type">
+                    <option value="passenger">Khách hàng</option>
+                    <option value="manager">Quản lý</option>
+                    <option value="administrator">Admin</option>
+                    <option value="non">Tất cả</option>
+                </select>
+                <input class="search_button" type="submit" value="Tìm">
+            </form>
+        </div>
+
+        <div class="filter-detail">
+            <div id="table-data" class="tableFixHead">
+                <table>
+                    <thead>
+                        <th>ID</th>
+                        <th>Họ và tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Loại tài khoản</th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            {% for field in row %}
+                            <td>{{ field }}</td>
+                            {% endfor %}
+                           
+
+                            {% if row[4] == "Khách hàng" %}
+                            <td><button class="edit-button" onclick="editCustomer('{{ row[0] }}')">Sửa</button></td>
+                            <td><button class="delete-button" onclick="deleteCustomer('{{ row[0] }}')">Xóa</button></td>
+                            {% else %}
+                            <td><button class="edit-button" class="edit-btn"
+                                    onclick="editEmployee('{{ row[0] }}')">Sửa</button></td>
+                            <td><button class="delete-button" onclick="deleteEmployee('{{ row[0] }}')">Xóa</button>
+                                {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <script>
+                function editCustomer(userId) {
+                    const id = localStorage.setItem('userid', userId)
+                    console.log("Sửa khách hàng với userId: " + userId);
+                    window.open("/edit_kh/" + userId, "_blank", "width=300,height=280,left=1200");
+                }
+
+                function deleteCustomer(userId) {
+                    localStorage.setItem('myid', userId)
+                    window.open("/delete_kh/" + userId, "_blank", "width=300,height=280,left=1200");
+                }
+
+                function editEmployee(userId) {
+                    const id = localStorage.setItem('userid', userId)
+                    console.log("Sửa nhân viên với userId: " + userId);
+                    window.open("/edit_nv/" + userId, "_blank", "width=300,height=280,left=1200");
+                }
+                function deleteEmployee(userId) {
+                    const id = localStorage.setItem('userid', userId)
+                    window.open("/delete_nv/" + userId, "_blank", "width=300,height=280,left=1200");
+                }
+            </script>
+
+
+            <div id="acc-edit">
+                <!-- <table border="1" cellspacing="0" cellpadding="10">
+                    <tr>
+                        <th>Họ và tên</th>
+                        <th>Email</th>
+                        <th>SĐT</th>
+                        <th>Loại TK</th>
+                    </tr>
+
+                    <tr>
+                        <td>Ai đây?</td>
+                        <td>who@gmail.com</td>
+                        <td>012345678</td>
+                        <td>Khách hàng</td>
+                    </tr>
+                </table> -->
+                <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <form method="post" onsubmit="edit_user(event)">
+                    <h2 style="margin: 40px 0 30px 0;">Sửa thông tin tài khoản
+                        <button type="submit">Lưu</button>
+                    </h2>
+                    <table class="editable" border="1" cellspacing="0" cellpadding="10">
+                        <tr>
+                            <th><label for="maKhachHang">Mã khách hàng:</label></th>
+                            <td><input type="number" name="maKhachHang" id="maKhachHang" value="user_data.maKhachHang" required></td>
+                        </tr>
+                        <tr>
+                            <th><label for="tenKhachHang">Tên:</label></th>
+                            <td><input type="text" name="tenKhachHang" id="tenKhachHang" value="user_data.tenKhachHang"  required></td>
+                        </tr>
+                        <tr>
+                            <th><label for="email">Email:</label></th>
+                            <td><input type="text" name="email" id="email" value="user_data.email" required></td>
+                        </tr>
+                        <tr>
+                            <th><label for="soDienThoai_KH">Số điện thoại:</label></th>
+                            <td><input type="number" name="soDienThoai_KH" id="soDienThoai_KH" value="user_data.soDienThoai_KH" required></td>
+                        </tr>
+                        <tr>
+                            <th><label for="soTaiKhoanNH">Số tài khoản:</label></th>
+                            <td><input type="text" name="soTaiKhoanNH" id="soTaiKhoanNH" value="user_data.soTaiKhoanNH" required></td>
+                        </tr>
+                        <tr>
+                            <th><label for="matKhau">Mật khẩu:</label></th>
+                            <td><input type="text" name="matKhau" id="matKhau" value="user_data.matKhau" required></td>
+                        </tr>
+
+                    </table>
+
+                </form> -->
+
+
+
+                <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+                    <p id="info-link">Truy xuất thông tin tài khoản</p>
+                    <p id="del-link">Xóa tài khoản</p>
+                </div>
+            </div>
+
+            <div id="acc-info">
+                <table border="1" cellspacing="0" cellpadding="10">
+                    <tr>
+                        <th>Họ và tên</th>
+                        <th>Email</th>
+                        <th>SĐT</th>
+                        <th>Loại TK</th>
+                    </tr>
+
+                    <tr>
+                        <td>Ai đây?</td>
+                        <td>who@gmail.com</td>
+                        <td>012345678</td>
+                        <td>Khách hàng</td>
+                    </tr>
+                </table>
+
+                <div>
+                    <h2 style="margin: 40px 0 30px 0;">Truy xuất thông tin tài khoản
+                        <button type="submit">Lưu</button>
+                    </h2>
+                    <table border="1" cellspacing="0" cellpadding="10">
+                        <tr>
+                            <th>Thông tin </th>
+                            <th>Chi tiết</th>
+                        </tr>
+                    </table>
+
+                </div>
+                <p id="edit-link">Sửa thông tin tài khoản</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="alert" class="alert">
+        <div class="alert-content">
+            <h3>Xóa tài khoản này?</h3>
+            <div id="alert-btn">
+                <button id="yes">Xóa</button>
+                <button id="close-btn">Không</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="acc-info-detail">
+
+    </div>
+
+    <div id="add-acc">
+
+        <form method="post" action="http://127.0.0.1:8000/add_kh">
+
+            <div style="display:flex; justify-content: space-between">
+                <h2>Thêm tài khoản khách hàng:</h2>
+                <button type="submit">Lưu</button>
+            </div>
+            <table border="1" cellspacing="0" cellpadding="10">
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>Email</th>
+                    <th>SĐT</th>
+                    <th>Tài khoản ngân hàng</th>
+                    <th>Mật khẩu</th>
+
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="tenKhachHang"></td>
+                    <td><input type="email" name="email"></td>
+                    <td><input type="tel" name="soDienThoai_KH"></td>
+                    <td><input type="text" name="soTaiKhoanNH"></td>
+                    <td><input type="text" name="matKhau"></td>
+
+                </tr>
+            </table>
+        </form>
+
+        <form method="post" action="http://127.0.0.1:8000/add_nv">
+            <div style="display:flex; justify-content: space-between">
+                <h2>Thêm tài khoản nhân viên:</h2>
+                <button type="submit">Lưu</button>
+            </div>
+            <table border="1" cellspacing="0" cellpadding="10">
+                <tr>
+                    <th>Tên NV</th>
+                    <th>Chức vụ</th>
+                    <th>Giới tính</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    <th>Ngày sinh</th>
+                    <th>Địa chỉ</th>
+                    <th>Lương</th>
+                    <th>Mật khẩu</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="tenNhanVien"></td>
+                    <td><input type="text" name="chucVu"></td>
+                    <td><input type="text" name="gioiTinh"></td>
+                    <td><input type="tel" name="soDienThoai_NV"></td>
+                    <td><input type="email" name="email"></td>
+                    <td><input type="text" name="ngaySinh"></td>
+                    <td><input type="text" name="diaChi"></td>
+                    <td><input type="number" name="luong"></td>
+                    <td><input type="text" name="matKhau"></td>
+                </tr>
+            </table>
+
+        </form>
+
+
+        <!-- <div style="display:flex; justify-content: space-between">
+            <h2>Thêm tài khoản</h2>
+            <form>
+                <select name="user-type">
+                    <option value="passenger">Khách hàng</option>
+                    <option value="manager">Quản lý</option>
+                    <option value="administrator">Admin</option>
+                </select>
+                <button type="button" onclick="handleSubmit()">Thêm</button>
+            </form>
+            <button type="submit">Lưu</button>
+        </div> -->
+        <!-- <form>
+            <table id="add_khachhang" border="1" cellspacing="0" cellpadding="10" style="display: none;">
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>Email</th>
+                    <th>SĐT</th>
+                    <th>Ngân hàng</th>
+                    <th>Mật khẩu</th>
+               
+                <tr>
+                    <td><input type="text" name="tenKH" id="tenKH" required></td>
+                    <td><input type="email" name="email" id="email" required></td>
+                    <td><input type="text" name="soDT" id="soDT"></td>
+                    <td><input type="text" name="nganhang" id="nganhang"></td>
+                    <td><input type="text" name="mk" id="mk" required></td>
+                    <td><input type="button" value="Thêm khách hàng" onclick="add_khachhang()"></td>
+                </tr>
+            </table>
+        </form> -->
+        <!-- <form>
+            <table id='add_nhanvien' border="1" cellspacing="0" cellpadding="10" style="display: none;">
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>Email</th>
+                    <th>SĐT</th>
+                    <th>Chức vụ</th>
+                    <th>Mật khẩu</th>
+                </tr>
+               
+                <tr>
+                    <td><input type="text" name="tenNV" id="tenNV" required></td>
+                    <td><input type="email" name="emailNV" id="emailNV" required></td>
+                    <td><input type="text" name="soDTNV" id="soDTNV"></td>
+                    <td><input type="text" name="chucVu" id="chucVu"></td>
+                    <td><input type="text" name="mkNV" id="mkNV" required></td>
+                    <td><input type="button" value="Thêm nhân viên" onclick="add_nhanvien()"></td>
+                </tr>
+            </table>
+        </form> -->
+
+
+
+
+
+
+    </div>
+
+    <script src="../js-a/admin.js"></script>
+
+
+</body>
+
+</html>

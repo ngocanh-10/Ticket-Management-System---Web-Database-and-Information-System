@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Xóa Khách Hàng</title>
+</head>
+<body>
+    <h1>Xóa khách hàng:</h1>
+    <!-- <input id="showId"/> -->
+    <form action="/delete_kh" method="post">
+        <label for="maKhachHang">Mã Khách Hàng:</label>
+        <input id="ID" type="number" name="maKhachHang" required>
+        <br>
+        <button type="submit">Xóa Khách Hàng</button>
+    </form>
+    <script>
+        const id = localStorage.getItem('myid')
+        document.getElementById('ID').value = id
+      
+  
+    </script>
+</body>
+</html>

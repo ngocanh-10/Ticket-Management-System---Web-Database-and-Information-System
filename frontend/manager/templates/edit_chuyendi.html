@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sửa Thông Tin Chuyến Đi</title>
+</head>
+<body>
+    <h1>Sửa thông tin chuyến đi:</h1>
+    <form method="post" action="/edit_chuyendi">
+        <label for="maChuyenDi">Mã chuyến đi:</label>
+        <input type="text" name="maChuyenDi" id="maChuyenDi" required>
+        
+        <!-- Dữ liệu cần chỉnh sửa -->
+        <label for="soGheDat">Số ghế đặt</label>
+        <input type="number" name="soGheDat" id="soGheDat" required>
+
+        <label for="gioDi">Giờ đi:</label>
+        <input type="text" name="gioDi" id="gioDi" required>
+        
+        <label for="gioDen">Giờ đến:</label>
+        <input type="text" name="gioDen" id="gioDen" required>
+
+        <label for="giaChuyenDi">Giá chuyến đi:</label>
+        <input type="number" name="giaChuyenDi" id="giaChuyenDi" required>
+        
+        <label for="taiXe">Tài xế:</label>
+        <input type="text" name="taiXe" id="taiXe" required>
+
+        <label for="maXeKhach">Số tài khoản:</label>
+        <input type="text" name="maXeKhach" id="maXeKhach" required>
+
+        <label for="maLoTrinh">Mã lộ trình:</label>
+        <input type="number" name="maLoTrinh" id="maLoTrinh" required>
+        
+        <button type="submit">Lưu chỉnh sửa</button>
+    </form>
+</body>
+</html>

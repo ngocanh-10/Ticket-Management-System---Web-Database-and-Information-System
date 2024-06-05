@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin tài khoản</title>
+    <link rel="stylesheet" type="text/css" href="../css-u/acc_info.css">
+</head>
+
+<body>
+    <div id="header1">
+        <a href="home_user.html" style="margin-top:12px;margin-left: 20px;">
+            <img width="auto" height="74" src="../img-u/logo.png" alt="">
+        </a>
+        <div id="menu">
+            <div class="item">
+                <a href="contact_info.html">Giới thiệu</a>
+            </div>
+            <div class="item">
+                <a href="help.html">Hỗ trợ</a>
+            </div>
+            <div class="item">
+                <img id='user-img' width="auto" height="45" src="../img-u/user.png" alt="">
+            </div>
+            <p class="item" style="color: #004AAD; margin-left:0px;">i</p>
+
+        </div>
+    </div>
+    <div style="height: 10px;"></div>
+    <div id="header2">
+        <div id="menu">
+            <div class="item">
+                <a href="home_user.html">Trang chủ</a>
+            </div>
+            <div class="item">
+                <a href="/vehientai/me">Kiểm tra đặt xe</a>
+            </div>
+            <div class="item">
+                <a href="contact_info.html">Ưu đãi</a>
+            </div>
+            <div class="item">
+                <a href="contact_info.html">Voucher của tôi</a>
+            </div>
+        </div>
+
+    </div>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-head">
+                <a href="acc_info.html">Tài khoản</a>
+            </div>
+            <div class="modal-head">
+                <a href="contact_info.html">Đánh giá</a>
+            </div>
+            <div class="modal-head">
+                <a href="http://127.0.0.1:8000">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="main-item">
+            <h2>Thông tin tài khoản</h2>
+            <input type="button" value="Xem tài khoản" onclick="myaccount()">
+            <input type="button" value="Ẩn tài khoản" onclick="hideaccount()">
+            <button id="update">Cập nhật</button>
+            <table id="user_table" style="display: none;">
+                <tr>
+                    <th>Họ và tên:</th>
+                    <td id="username"></td>
+                </tr>
+                <tr>
+                    <th>SĐT:</th>
+                    <td id="phone"></td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td id="email"></td>
+                </tr>
+                <tr>
+                    <th>Loại tài khoản:&nbsp;&nbsp;</th>
+                    <td>Khách hàng thông thường</td>
+                </tr>
+                <tr>
+                    <th>Mật khẩu:</th>
+                    <td id="password"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="main-item">
+            <h2>Lịch sử hoạt động</h2>
+            <table>
+                <tr>
+                    <th>Số lần đặt vé:</th>
+                    <td><input id="ticket-number" style="width: 100px;" readonly></td>
+                    <td><button onclick="quantityTicket()">Xem</button></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><a href="check_ticket.html">
+                            <button>Xem chi tiết</button>
+                        </a></td>
+                </tr>
+                <tr>
+                    <th>Số lượt đánh giá:&nbsp;&nbsp;</th>
+                    <td>18</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="alert" class="alert">
+        <div class="alert-content">
+            <h3>Chỉnh sửa thông tin tài khoản</h3>
+            <form id="123">
+                <table>
+                    <tr>
+                        <th>Họ và tên: &nbsp;</th>
+                        <td><input type="text" id="username_edit"></td>
+                    </tr>
+                    <tr>
+                        <th>SĐT:</th>
+                        <td><input type="text" id="phone_edit"></td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td><input type="text" id="email_edit"></td>
+                    </tr>
+                    <tr>
+                        <th>Mật khẩu:</th>
+                        <td><input type="text" id="password_edit"></td>
+            </tr>
+        </table>
+
+        <div id=" alert-btn">
+                            <button id="close-btn" onclick="closeForm()">Hủy</button>
+                            <button id="yes" type="submit" onclick="edit_KH()">Lưu</button>
+        </div>
+        </form>
+
+    </div>
+    </div>
+    <script src="../js-u/acc_info.js"></script>
+
+</body>
+
+</html>

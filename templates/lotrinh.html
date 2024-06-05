@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lộ trình</title>
+    </head>
+<body>
+    <table>
+        <tr>
+            <th>Mã lộ trình</th>
+            <th>Điểm đầu</th>
+            <th>Điểm cuối</th>
+            <th>Tỉnh xuất phát</th>
+            <th>Tỉnh kết thúc</th>
+            <th>Giá lộ trình</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            {% for field in row %}
+            <td>{{ field }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

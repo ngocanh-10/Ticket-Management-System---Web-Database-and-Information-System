@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vé</title>
+    <style>
+        .tb {
+            align-items: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        thead {
+            background-color: #234662;
+            color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tb">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã vé</th>
+                    <th>Số lượng</th>
+                    <th>Mã chuyến đi</th>
+                    <th>Mã khách hàng</th>
+                    <th>Mã thanh toán</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    {% for field in row %}
+                    <td contenteditable="true">{{ field }}</td>
+                    {% endfor %}
+                    <td><button class="edit-btn" onclick="saveChanges(this)">Sửa</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- <script>
+            function saveChanges(button) {
+                var row = button.parentNode.parentNode;
+                var cells = row.getElementsByTagName("td");
+
+                var rowData = [];
+                for (var i = 0; i < cells.length - 1; i++) {
+                    rowData.push(cells[i].innerHTML);
+                }
+
+                // Gửi dữ liệu cần sửa đổi lên backend
+                fetch("http://127.0.0.1:8000/edit_datve", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ data: rowData })
+                })
+                    .then(response => response.json()) // Chuyển đổi phản hồi thành JSON
+                    .then(updatedRowData => {
+                        // Cập nhật dữ liệu đã sửa đổi trên bảng
+                        for (var i = 0; i < cells.length - 1; i++) {
+                            cells[i].innerHTML = updatedRowData[i];
+                        }
+                    })
+                    .catch(error => {
+                        // Xử lý lỗi (nếu có)
+                        console.log(error);
+                    });
+            }
+        </script> -->
+</body>
+
+</html>

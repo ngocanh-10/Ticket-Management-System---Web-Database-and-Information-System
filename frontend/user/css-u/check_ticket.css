@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+*{
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+    letter-spacing: 1px;
+    cursor: auto;
+}
+
+
+#header1 {
+    width: 100%;
+    height:70px;
+    margin-top:0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(to right, #5de0e6, #004AAD);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+#header2 {
+    width: 100%;
+    height:40px;
+    margin-top:0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 67px;
+    z-index: 9997;
+    background-color: #BF170E;
+    border-style: solid none solid none;
+    border-color: white;
+    border-width: 1px;
+}
+
+#menu {
+    list-style:none;
+    display: flex;
+    margin-left: 20px;
+
+}
+#menu .item {
+    margin:auto 15px;
+    font-size: 19px;
+
+}
+
+#menu .item a {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+menu .item img{
+    cursor: pointer;
+}
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9998; /* Sit on top */
+  padding-top: 70px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  margin-right: 0px;
+  padding: 0;
+  height: 150px;
+  width:150px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.2s;
+  animation-name: animatetop;
+  animation-duration: 0.2s;
+  text-align: center;
+}
+
+
+.modal-head {
+    text-align: center;
+    padding: 12px;
+    height: 50px;
+    background-color: white;
+    font-size: 17px;
+}
+
+.modal-head a {
+    color: #1a1a1a;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-head:hover {
+    background-color: #e6e6e6;
+}
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.filter {
+    height: 150px;
+    width:100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 60px;
+}
+
+.filter .item {
+    width: 200px;
+    height: 50px;
+    background-color: #d9d9d9;
+    margin: 10px 40px 10px 10px;
+    padding: 13px;
+    border: 1px solid #0097B2;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#filter1 {
+    background-color: pink;
+}
+
+#info {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* table {
+    margin: auto;
+    border:2px solid  #595959;
+    border-collapse:collapse;
+    font-size:15px;
+} */
+
+#hientai {
+    align-items: center;
+}
+
+#table-data2, #table-data3 {
+    display: none;
+}
+
+th {
+    background-color: #ffccff;
+}
+
+td {
+    text-align: center;
+    padding:5px 5px 5px 5px;
+}
+
+td button {
+    height: 30px;
+    width:70px;
+    border: none;
+    border-radius:5px;
+    color: white;
+    background-color: crimson;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+td button:active {
+    transform: scale(1.03);
+}
+
+td button:hover {
+    background-color: #bb1133;
+}
+
+
+
+.alert {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  padding-top: 90px; /* Location of the box */
+  text-align: center;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.alert-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #0097B2;
+  border-radius: 8px;
+  width: 350px;
+  height: 300px;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.2s;
+  animation-name: animatetop;
+  animation-duration: 0.2s
+  /* text-align: center; */
+}
+
+.alert-content h3{
+    padding: 15px 0 0 0px;
+}
+
+#alert-btn {
+    text-align: center;
+    padding-top: 30px;
+
+}
+
+#alert-btn button{
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    margin: 15px;
+}
+
+#yes {
+    color: white;
+    background-color: crimson;
+    border:none;
+    border-radius: 5px;
+}
+
+#yes:hover {
+    background-color: #bb1133;
+}
+
+#yes:active {
+    background-color: crimson;
+}

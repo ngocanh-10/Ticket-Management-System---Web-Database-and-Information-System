@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý chuyến đi</title>
+    <link rel="stylesheet" type="text/css" href="../css-m/trip.css">
+</head>
+
+<body>
+    <div id="header1">
+        <a href="" style="margin-top:12px;margin-left: 20px;">
+            <img width="auto" height="74" src="../img-m/logo.png" alt="">
+        </a>
+        <div id="menu">
+            <div class="item">
+                <a href="">Báo cáo</a>
+            </div>
+            <div class="item">
+                <a href="">Hệ thống</a>
+            </div>
+            <div class="item">
+                <img id='user-img' width="auto" height="45" src="../img-m/user.png" alt="">
+            </div>
+            <p class="item" style="color: #004AAD; margin-left:0px;">i</p>
+
+        </div>
+    </div>
+    <div style="height: 10px;"></div>
+    <div id="header2">
+        <div id="menu">
+            <div class="item">
+                <a href="ticket.html">Vé</a>
+            </div>
+            <div class="item">
+                <a style="color: black;
+                        background-color: white;
+                        padding: 2px 3px 2px 3px;
+                        border-radius: 3px" href="trip.html">Chuyến đi</a>
+            </div>
+            <div class="item">
+                <a href="bus.html">Xe</a>
+            </div>
+            <div class="item">
+                <a href="routes.html">Lộ trình</a>
+            </div>
+            <div class="item">
+                <a href="employee.html">Nhân viên</a>
+            </div>
+            <div class="item">
+                <a href="passenger.html">Khách hàng</a>
+            </div>
+            <div class="item">
+                <a href="payment.html">Thanh toán</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-head">
+                <a href="acc_info.html">Tài khoản</a>
+            </div>
+            <div class="modal-head">
+                <a href="http://127.0.0.1:8000">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <div id="h">
+            <h2>Quản lý chuyến đi</h2>
+            <div>
+                <button id="add-btn">Tạo mới</button>
+                <button id="save">Lưu</button>
+            </div>
+        </div>
+        <div id="table-data" class="tableFixHead">
+            <!-- <iframe src="http://127.0.0.1:8000/chuyendi" width="100%" height="100%"></iframe> -->
+            <table>
+                <tr>
+                    <th>Mã chuyến đi</th>
+                    <th>Số ghế đặt</th>
+                    <th>Giờ đi</th>
+                    <th>Giờ đến</th>
+                    <th>Giá chuyến đi</th>
+                    <th>Tài xế</th>
+                    <th>Mã xe</th>
+                    <th>Mã lộ trình</th>
+                </tr>
+                {% for row in data %}
+                <tr>
+                    {% for field in row %}
+                    <td>{{ field }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div id="edit-detail">
+        <div style="display: flex;
+    justify-content: space-between; margin-bottom: 20px">
+            <h2>Chỉnh sửa thông tin</h2>
+            <button id="del-btn">Xóa</button>
+        </div>
+        <div>
+            <form class="changed-info" method="post" action="">
+                <table border="1" cellspacing="0" cellpadding="10">
+                    <tr>
+                        <th>Mã chuyến đi</th>
+                        <th>Số ghế đặt</th>
+                        <th>Giờ đi</th>
+                        <th>Giờ đến</th>
+                        <th>Giá</th>
+                        <th>Tài xế</th>
+                        <th>Mã xe khách</th>
+                        <th>Mã lộ trình</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="giá trị cũ"></td>
+                        <td><input type="number" value="40"></td>
+                        <td><input style="display: inline-block; width: 100px" type="datetime-local"></td>
+                        <td><input style="display: inline-block; width: 100px" type="datetime-local"></td>
+                        <td><input type="number" value="2000000"></td>
+                        <td><input type="text" value="giá trị cũ"></td>
+                        <td><input type="text" value="giá trị cũ"></td>
+                        <td><input type="text" value="giá trị cũ"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <div id="alert" class="alert">
+        <div class="alert-content">
+            <h3>Xóa chuyến đi này?</h3>
+            <div id="alert-btn">
+                <button id="yes">Xóa</button>
+                <button id="close-btn">Không</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-detail">
+        <h2>Tạo mới chuyến đi</h2>
+        <br>
+        <div>
+            <form class="changed-info" method="post" action="http://127.0.0.1:8000/add_chuyendi">
+
+                <div style="display:flex; justify-content: space-between">
+
+                    <table border="1" cellspacing="0" cellpadding="10">
+                        <tr>
+                            <th>Số ghế đặt</th>
+                            <th>Giờ đi</th>
+                            <th>Giờ đến</th>
+                            <th>Giá</th>
+                            <th>Tài xế</th>
+                            <th>Mã xe khách</th>
+                            <th>Mã lộ trình</th>
+                        </tr>
+
+                        <tr>
+                            <td><input type="number" name="soGheDat"></td>
+                            <td><input type="datetime" name="gioDi"></td>
+                            <td><input type="datetime" name="gioDen"></td>
+                            <td><input type="number" name="giaChuyenDi"></td>
+                            <td><input type="number" name="taiXe"></td>
+                            <td><input type="text" name="maXeKhach"></td>
+                            <td><input type="number" name="maLoTrinh"></td>
+                        </tr>
+                    </table>
+                    <button type="submit" id="add-btn">Tạo mới</button>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div id="footer">
+    </div>
+
+    <script src="../js-m/trip.js"></script>
+
+</body>
+
+</html>

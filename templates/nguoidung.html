@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Khách hàng</title>
+    
+</head>
+
+<body>
+    
+    <div class="tb">
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Họ và tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Loại tài khoản</th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    {% for field in row %}
+                    <td>{{ field }}</td>
+                    {% endfor %}
+
+                    {% if row[4] == "Khách hàng" %}
+                    <td><button id="update">Sửa</button></td>
+                    <!-- <td><button class="edit-btn" formaction="/delete_kh/{row[0]}">Xóa</button></td> -->
+                    <td><button onclick="deleteCustomer('{{ row[0] }}')">Xóa</button></td>
+                    {% else %}
+                    <td><button id="update" class="edit-btn" onclick="editEmployee('{{ row[0] }}')">Sửa</button></td>
+                    <td><button class="edit-btn" onclick="deleteEmployee('{{ row[0] }}')">Xóa</button>
+                        {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div id="alert" class="alert">
+            <div class="alert-content">
+                <h3>Chỉnh sửa thông tin tài khoản</h3>
+                <form method="post" action="http://127.0.0.1:8000/edit_kh/{id}">
+
+                    <table>
+                        <tr>
+                            <th><label for="maKhachHang">Mã khách hàng:</label></th>
+                            <td><input type="number" name="maKhachHang" id="maKhachHang" value="{{ id }}" required></td>
+                        </tr>
+
+                        <tr>
+                            <th><label for="tenKhachHang">Tên:</label></th>
+                            <td><input type="text" name="tenKhachHang" id="tenKhachHang" required></td>
+                        </tr>
+                        <tr>
+                            <th><label for="email">Email:</label></th>
+                            <td><input type="text" name="email" id="email" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="soDienThoai_KH">Số điện thoại:</label></th>
+                            <td><input type="number" name="soDienThoai_KH" id="soDienThoai_KH"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="soTaiKhoanNH">Số tài khoản:</label></th>
+                            <td><input type="text" name="soTaiKhoanNH" id="soTaiKhoanNH" required></td>
+                        </tr>
+                        <tr>
+                            <th><label for="matKhau">Mật khẩu:</label></th>
+                            <td><input type="text" name="matKhau" id="matKhau" required></td>
+                        </tr>
+                    </table>
+
+                    <div id="alert-btn">
+                        <button id="close-btn">Hủy</button>
+                        <button id="yes" type="submit">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+   
+
+    <script>
+        function editCustomer(userId) {
+            console.log("Sửa khách hàng với userId: " + userId);
+
+            window.open("/edit_kh/" + userId, "_blank", "width=300,height=280,left=1200");
+            // var update_btn = document.getElementById("update");
+
+            // var alert = document.getElementById("alert");
+            // var update_btn = document.getElementById("update");
+            // var close_btn = document.getElementById("close-btn");
+
+            // // When the user clicks the button, open the modal
+            // update_btn.onclick = function () {
+            //     alert.style.display = "block";
+            // }
+
+            // // When the user clicks on close button, close it
+            // window.onclick = function (event) {
+            //     if (event.target == close_btn) {
+            //         alert.style.display = "none";
+            //     }
+            // }
+        }
+
+        function deleteCustomer(userId) {
+
+            // if (confirm("Bạn có chắc chắn muốn xóa tài khoản này?")) {
+            //     var xhr = new XMLHttpRequest();
+            //     xhr.open("DELETE", "/delete_kh/" + userId, true);
+            //     xhr.onreadystatechange = function () {
+            //         if (xhr.readyState === XMLHttpRequest.DONE) {
+            //             if (xhr.status === 200) {
+            //                 alert("Xóa thành công");
+            //                 // Nếu cần, thực hiện các thao tác cập nhật giao diện nếu dữ liệu đã bị xóa
+            //             } else {
+            //                 alert("Xóa không thành công");
+            //                 // Xử lý lỗi nếu có
+            //             }
+            //         }
+            //     };
+            //     xhr.send();
+            }
+        
+
+
+        function editEmployee(userId) {
+            // Thực hiện hành động sửa với userId của nhân viên
+            console.log("Sửa nhân viên với userId: " + userId);
+            // Thực hiện chuyển hướng đến trang sửa với userId
+            window.open("/edit_nv/" + userId, "_blank", "width=300,height=280,left=1200");
+        }
+        function deleteEmployee(userId) {
+            window.open("/delete_nv/" + userId, "_blank", "width=300,height=280,left=1200");
+        }
+
+
+
+    </script> </div>
+</body>
+
+</html>

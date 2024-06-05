@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Thanh toan</title>
+    </head>
+<body>
+    <table>
+        <tr>
+            <th>Mã Thanh Toán</th>
+            <th>Trạng thái</th>
+            <th>Tổng tiền</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            {% for field in row %}
+            <td>{{ field }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

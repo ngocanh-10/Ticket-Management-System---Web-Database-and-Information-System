@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nhân viên</title>
+</head>
+
+<body>
+    <div class="tb">
+        <table>
+            <tr>
+                <th>Mã nhân viên</th>
+                <th>Tên nhân viên</th>
+                <th>Chức vụ</th>
+                <th>Giới tính</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th>Lương</th>
+                <th></th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                {% for field in row %}
+                <td>{{ field }}</td>               
+                {% endfor %}
+                <td><button>Sửa</button></td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+    </div>
+
+</body>
+
+</html>

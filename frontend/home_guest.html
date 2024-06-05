@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" type="text/css" href="/static/home_guest.css">
+</head>
+
+<body>
+<div id="header1">
+    <a href="" style="margin-top:12px;margin-left: 20px;">
+        <img width="auto" height="74" src="/static/img/logo.png" alt="">
+    </a>
+    <div id="menu">
+        <div class="item">
+            <a href="http://127.0.0.1:5500/THỰC HÀNH WEB\ban-ve-xe-khach\guest\templates\contact_info.html">Giới thiệu</a>
+        </div>
+        <div class="item">
+            <a href="http://127.0.0.1:8000">Hỗ trợ</a>
+        </div>
+        <div class="item">
+            <a class="myBtn">Đăng nhập</a>
+        </div>
+
+    </div>
+
+</div>
+<div style="height: 10px;"></div>
+<div id="header2">
+    <div id="menu">
+        <div class="item">
+            <a style="color: black;
+                        background-color: white;
+                        padding: 2px 3px 2px 3px;
+                        border-radius: 3px" href="">Trang chủ</a>
+        </div>
+        <div class="item">
+            <a class="myBtn">Kiểm tra đặt xe</a>
+        </div>
+        <div class="item">
+            <a href="guest/templates/sale.html">Ưu đãi</a>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="banner">
+    <h1>Đặt xe dễ dàng, mọi lúc mọi nơi</h1>
+    <h2>Từ Hà Nội đi khắp các tỉnh thành</h2>
+    <button class="myBtn"><b>Đăng nhập ngay</b></button>
+</div>
+
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div id="login">
+            <div class="modal-head">Đăng nhập</div>
+
+            <form id="login-form" method="post" action="">
+                <p class="login-reg-label">Số điện thoại/Email</p>
+                <input required id="username" class="form-input" type="text" value="">
+                <p class="login-reg-label">Mật khẩu</p>
+                <input required id="password" class="form-input" type="password" value="">
+                <input id="login-button" type="button" value="Đăng nhập" onclick="login_redirect()">
+            </form>
+            <a href="#" id="login-link">Chưa có tài khoản? Đăng ký</a>
+            <br>
+            <br>
+            <a href="#" id="forgot-pass">Quên mật khẩu</a>
+
+        </div>
+        <div id="register">
+            <div class="modal-head">Tạo tài khoản</div>
+
+            <form id="register-form" method="post" action="">
+                <input required class="form-input" type="text" placeholder="Họ và tên">
+                <input required class="form-input" type="text" placeholder="Số điện thoại hoặc email">
+                <input required class="form-input" type="password" placeholder="Mật khẩu">
+                <input required class="form-input" type="password" placeholder="Xác nhận mật khẩu">
+                <input id="register-button" type="button" value="Đăng ký" onclick="register_redirect()">
+            </form>
+            <a href="#" id="register-link">Đã có tài khoản? Đăng nhập</a>
+        </div>
+    </div>
+</div>
+
+
+<div id="main">
+    <div class="filter">
+        <h2>Tìm kiếm</h2>
+        <form onsubmit="return false">
+            <br>
+            <label>Điểm đi</label>
+            <input type="text" class="item" placeholder="Điểm khởi hành">
+            <br>
+            <br>
+
+            <label>Điểm đến</label>
+            <input type="text" class="item" placeholder="Điểm đến">
+            <br>
+            <br>
+
+            <label>Ngày đi</label>
+            <input type="date" class="item" placeholder="Ngày">
+            <br>
+            <br>
+            <label>Loại ghế</label>
+            <br>
+            <select>
+                <option value="sit">Ghế ngồi</option>
+                <option value="lie">Giường nằm</option>
+                <option value="non">Không chọn</option>
+            </select>
+            <input class="search_button myBtn" type="submit" value="Tìm">
+        </form>
+
+    </div>
+
+    <div class="list">
+
+        <div>
+            <h2>Tuyến đường phổ biến</h2>
+            <div class="ad-list">
+                <div class="ad-item">
+                    <img class="ad-img" src="/static/img/ad1.jpg">
+                    <h4>Hà Nội - Ninh Bình</h4>
+                    <p>Từ 260.000đ</p>
+                </div>
+                <div class="ad-item">
+                    <img class="ad-img" src="/static/img/ad1.jpg">
+                    <h4>Tuyên Quang - Hà Nội</h4>
+                    <p>Từ 230.000đ</p>
+                </div>
+                <div class="ad-item">
+                    <img class="ad-img" src="/static/img/ad1.jpg">
+                    <h4>Hải Phòng - Quảng Ninh</h4>
+                    <p>Từ 80.000đ</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <h2>Ưu đãi nổi bật</h2>
+            <div class="ad-list">
+                <div class="ad-item2">
+                    <img class="ad-img" src="/static/img/ad2.jpg">
+                    <h4>Ưu đãi Tết</h4>
+                    <p>Giảm 15%</p>
+                </div>
+                <div class="ad-item2">
+                    <img class="ad-img" src="/static/img/ad2.jpg">
+                    <h4>Mừng sinh nhật 15 năm</h4>
+                    <p>Giảm 10%</p>
+                </div>
+                <div class="ad-item2">
+                    <img class="ad-img" src="/static/img/ad2.jpg">
+                    <h4>Tri ân khách hàng</h4>
+                    <p>Giảm 5%</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="why">
+    <h2>Tại sao bạn nên sử dụng dịch vụ của chúng tôi?</h2>
+    <div id="why-body">
+        <div class="item">
+            <p>Đặt xe dễ dàng, thanh toán tiện lợi</p>
+        </div>
+        <div class="item">
+            <p>Sẵn sàng phục vụ mọi lúc mọi nơi</p>
+        </div>
+        <div class="item">
+            <p>Đem đến trải nghiệm tốt nhất cho bạn</p>
+        </div>
+    </div>
+</div>
+
+<div id="cmt">
+    <h2>Khách hàng nói gì về chúng tôi</h2>
+    <div class="cmt-body1">
+        <div class="item">
+            <div>
+                <div class="avatar">
+                    <img src="/static/img/khach1.jpg" alt="">
+                </div>
+                <div style="text-align: center;">Chị Hương</div>
+            </div>
+            <div class="text">
+                <p>Nhà xe liên hệ xác nhận vé ngay và thông báo để tôi có thời gian chuẩn bị.
+                    Tôi khá bất ngờ vì nhà xe sắp xếp chỗ nhanh đến vậy.
+                    Chuyến đi hôm đó rất tuyệt.
+                    Tôi nhất định sẽ tiếp tục ủng hộ.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div>
+                <div class="avatar">
+                    <img src="/static/img/khach2.jpg" alt="">
+                </div>
+                <div style="text-align: center;">Anh Tiến</div>
+            </div>
+
+
+            <div class="text">
+                <p>Rất tiện lợi, xe đẹp mà nhân viên thân thiện, nhiệt tình.
+                    Mình có thể đặt vé bất cứ lúc nào mà không cần phải ra tận bến.
+                    Hủy chuyến cũng trả lại tiền rất nhanh chóng, làm ăn uy tín.
+                    Sẽ đi thêm nhiều lần nữa.</p>
+            </div>
+        </div>
+    </div>
+    <div class="cmt-body2">
+        <div class="item">
+            <div>
+                <div class="avatar">
+                    <img src="/static/img/khach4.jpg" alt="">
+                </div>
+                <div style="text-align: center;">Anh Nguyên</div>
+            </div>
+            <div class="text">
+                <p>Nhà xe liên hệ xác nhận vé ngay và thông báo thời gian xe dự kiến đón để tôi chuẩn bị.
+                    Tôi khá bất ngờ vì nhà xe có thông tin của mình nhanh đến vậy.
+                    Chuyến đi hôm đó rất tuyệt.
+                    Tôi nhất định sẽ tiếp tục ủng hộ.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div>
+                <div class="avatar">
+                    <img src="/static/img/khach3.jpg" alt="">
+                </div>
+                <div style="text-align: center;">Bác Hoa</div>
+            </div>
+
+
+            <div class="text">
+                <p>Nhà xe liên hệ xác nhận vé ngay và thông báo thời gian xe dự kiến đón để tôi chuẩn bị.
+                    Tôi khá bất ngờ vì nhà xe có thông tin của mình nhanh đến vậy.
+                    Chuyến đi hôm đó rất tuyệt.
+                    Tôi nhất định sẽ tiếp tục ủng hộ.</p>
+            </div>
+        </div>
+    </div>
+    <div id="change-page">
+        <input type="radio" name="change-pg" checked="checked">
+        <input type="radio" name="change-pg">
+    </div>
+</div>
+
+<div id="footer">
+    <a>(C) 2023</a>
+    <a>Đánh giá</a>
+    <a href="guest/templates/contact_info.html">Giới thiệu</a>
+    <a href="guest/templates/help.html">Hỗ trợ</a>
+    <div style="text-align: center">
+        <br>
+        <a>Thông tin liên hệ</a>
+        <p>37 Trưng Vương, Hà Nội</p>
+        <p>SĐT: 0378254925</p>
+    </div>
+</div>
+
+<script src="/static/home_guest.js"></script>
+
+</body>
+</html>

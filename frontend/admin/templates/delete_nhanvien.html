@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Xóa Nhân Viên</title>
+</head>
+<body>
+    <h1>Xóa nhân viên:</h1>
+    
+    <form action="/delete_nv" method="post">
+        <label for="maNhanVien">Mã Nhân Viên:</label>
+        <input id="ID" type="number" name="maNhanVien" required>
+        <br>
+        <button type="submit">Xóa Nhân Viên</button>
+    </form>
+    <script>
+        const id = localStorage.getItem('userid')
+        document.getElementById('ID').textContent = id
+    </script>
+    
+</body>
+</html>

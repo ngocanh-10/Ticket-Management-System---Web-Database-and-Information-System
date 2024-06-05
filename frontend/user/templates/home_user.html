@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" type="text/css" href="../css-u/home_user.css">
+</head>
+
+<body>
+
+<div id="header1">
+    <a href="" style="margin-top:12px;margin-left: 20px;">
+        <img width="auto" height="74" src="../img-u/logo.png" alt="">
+    </a>
+    <div id="menu">
+        <div class="item">
+            <a href="contact_info.html">Giới thiệu</a>
+        </div>
+        <div class="item">
+            <a href="help.html">Hỗ trợ</a>
+        </div>
+        <div class="item">
+            <img id='user-img' width="auto" height="45" src="../img-u/user.png" alt="">
+        </div>
+        <p class="item" style="color: #004AAD; margin-left:0px;">i</p>
+
+    </div>
+</div>
+<div style="height: 10px;"></div>
+<div id="header2">
+    <div id="menu">
+        <div class="item">
+            <a style="color: black;
+                        background-color: white;
+                        padding: 2px 3px 2px 3px;
+                        border-radius: 3px"
+               href="home_user.html">Trang chủ</a>
+        </div>
+        <div class="item">
+            <a href="/vehientai/me">Kiểm tra đặt xe</a>
+        </div>
+        <div class="item">
+            <a href="contact_info.html">Ưu đãi</a>
+        </div>
+        <div class="item">
+            <a href="my_voucher.html">Voucher của tôi</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-head">
+            <a href="acc_info.html">Tài khoản</a>
+        </div>
+        <div class="modal-head">
+            <a href="contact_info.html">Đánh giá</a>
+        </div>
+        <div class="modal-head"> <!-- sửa thành đường dẫn tuyệt đối-->
+            <a href="http://127.0.0.1:8000">Đăng xuất</a>
+        </div>
+    </div>
+</div>
+
+
+<div id="main">
+    <div class="filter">
+        <h2>Tìm kiếm</h2>
+        <form id="filter-form" onsubmit="return false">
+            <br>
+            <label for="tinhXuatPhat">Tỉnh Xuất Phát:</label>
+            <select id="tinhXuatPhat" onchange="updateBenXuatPhatOptions()">
+                <!-- Options will be populated dynamically -->
+            </select>
+
+            
+
+            <label for="tinhKetThuc">Tỉnh Kết Thúc:</label>
+            <select id="tinhKetThuc" onchange="updateBenKetThucOptions()">
+                <!-- Options will be populated dynamically -->
+            </select>
+
+            
+
+            <label for="benXuatPhat">Bến Xuất Phát:</label>
+            <select id="benXuatPhat">
+               <!-- Options will be populated dynamically -->
+            </select>
+
+           
+
+            <label for="benKetThuc">Bến Kết Thúc:</label>
+            <select id="benKetThuc">
+                <!-- Options will be populated dynamically -->
+            </select>
+            
+
+            <label>Ngày đi</label>
+            <input id="date" name="date" type="date" placeholder="Ngày">
+            
+            <label>Loại ghế</label>
+            
+            <select id="bus-type" name="">
+                <option value="Ghế ngồi">Ghế ngồi</option>
+                <option value="Giường nằm">Giường nằm</option>
+            </select>
+            <input class="search_button" type="submit" value="Tìm" onclick="filterTripsAndScroll()">
+        </form>
+    </div>
+
+    <div class="filter-detail">
+        <div class="list">
+        <div class="list-item sleeper">
+            <div class="left">
+                <h2>Xe giường nằm (4,9 ⭐ (1234 lượt))</h2>
+                <div class="left-info">
+                    <img class="bus-image" src="../img-u/bus1.jpg">
+                    <div class="location">
+                        <div class="location-detail">
+                            <img class="location-icon" src="../img-u/location-icon1.png">
+                            <p>&nbsp;Hà Nội:&ensp;&ensp;&nbsp;&nbsp;&nbsp;</p>
+                            <p> 9:00 a.m</p>
+                        </div>
+                        <br>
+                        <div class="location-detail">
+                            <img class="location-icon" src="../img-u/location-icon2.png">
+                            <p>&nbsp;&nbsp;Hải Dương:&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                            <p>11:00 a.m</p>
+                        </div>
+                    </div>
+                    <div style="display:block; text-align: center;">
+                        <p>Số vé đặt</p>
+                        <input class="ticket-number" type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <p>Giá vé: 200.000đ</p>
+                <br>
+                <div class="voucher-border">
+                    <a href="my_voucher.html"><div class="voucher">Voucher</div></a>
+                </div>
+
+                <br>
+                <input class="select-bus" type="submit" value="Chọn" onclick="book_success()">
+            </div>
+        </div>
+
+</div>
+
+
+
+        <div id="book-ticket" class="list-item">
+                <h2>Nhập thông tin người đặt vé</h2>
+
+                <form id="book-form" method="post" action="">
+                    <div id="info-left">
+                        <div>
+                            <label class="">Họ và tên *</label>
+                            <input required id="name" type="text">
+                        </div>
+
+                        <div>
+                            <label class="">Số điện thoại *</label>
+                            <input required id="phone" type="tel">
+                        </div>
+
+                        <div>
+                            <label class="">Số tài khoản </label>
+                            <input id="stk" type="text">
+                        </div>
+                    </div>
+
+                    <div id="info-right">
+                        <p>Phương thức thanh toán *</p>
+                        <select id="payment" name="">
+                            <option value="Trực tiếp">Trực tiếp</option>
+                            <option value="Online">Online</option>
+                        </select>
+
+                        <button id="book-button" type="submit" value="Đặt vé" onclick="pay_ticket()">Đặt vé</button>
+
+                    </div>
+                </form>
+            </div>
+</div>
+        </div>
+
+
+<div id="footer">
+    Footer
+</div>
+
+<script src="../js-u/home_user.js"></script>
+
+</body>
+</html>

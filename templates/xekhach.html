@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Xe khách</title>
+    </head>
+<body>
+    <table>
+        <tr>
+            <th>Mã xe</th>
+            <th>Loại ghế</th>
+            <th>Số ghế</th>
+            <th>Phụ phí</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            {% for field in row %}
+            <td>{{ field }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

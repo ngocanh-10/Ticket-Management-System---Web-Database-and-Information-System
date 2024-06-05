@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+*{
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+    letter-spacing: 1px;
+    cursor: auto;
+}
+
+body {
+    height: 800px;
+}
+
+#header1 {
+    width: 100%;
+    height:70px;
+    margin-top:0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(to right, #5de0e6, #004AAD);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+#header2 {
+    width: 100%;
+    height:40px;
+    margin-top:0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 67px;
+    z-index: 9998;
+    background-color: #BF170E;
+    border-style: solid none solid none;
+    border-color: white;
+    border-width: 1px;
+}
+
+#menu {
+    list-style:none;
+    display: flex;
+    margin-left: 25px;
+}
+#menu .item {
+    margin:auto 20px;
+    font-size: 19px;
+}
+
+#menu .item a {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9998; /* Sit on top */
+  padding-top: 70px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  margin-right: 0px;
+  padding: 0;
+  width: 150px;
+  height: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.2s;
+  animation-name: animatetop;
+  animation-duration: 0.2s;
+  text-align: center;
+}
+
+
+.modal-head {
+    text-align: center;
+    padding: 12px;
+    height: 50px;
+    background-color: white;
+    font-size: 17px;
+}
+
+.modal-head a {
+    color: #1a1a1a;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-head:hover {
+    background-color: #e6e6e6;
+}
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+
+
+#main {
+    width: 100%;
+    height: 350px;
+    padding: 50px 50px 0;
+    margin: 0 0 120px 0;
+}
+
+#h {
+    display: flex;
+    justify-content: space-between;
+}
+
+#table-data {
+    margin: 30px auto;
+    border: 1px solid;
+}
+
+#main table {
+    margin: auto;
+    border:2px solid  #595959;
+    border-collapse: collapse;
+    font-size:15px;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+#main th, #edit-detail th,  #add-detail th{
+    height: 45px;
+    color: white;
+    background-color: #234662;
+}
+
+#main td , #edit-detail td,  #add-detail td{
+    text-align: center;
+    padding:5px 8px 5px 8px;
+}
+
+
+.tableFixHead {
+    overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
+    height: 100%; /* gives an initial height of 200px to the table */
+}
+
+.tableFixHead thead th {
+position: sticky; /* make the table heads sticky */
+top: -1px; /* table head will be placed from the top of the table and sticks to it */
+}
+
+.edit-btn{
+    color: white;
+    background-color:  #0097B2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-btn {
+    height: 40px;
+    width: 120px;
+    color: white;
+    background-color: #0097B2;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+#save {
+    height: 40px;
+    width: 120px;
+    color: white;
+    background-color: #B7C0C4;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 30px;
+    cursor: not-allowed;
+}
+
+#main button:active {
+    background-color: #01859D;
+}
+
+#edit-detail , #add-detail{
+    padding: 50px 50px 0;
+    margin: 50px auto;
+    width: 100%;
+}
+
+#edit-detail  table, #add-detail table{
+    width: 100%;
+
+}
+
+#edit-detail  input, #add-detail input{
+    border: none;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+#edit-detail {
+    display: none;
+}
+
+#del-btn {
+    height: 35px;
+    width: 60px;
+    color: white;
+    background-color: crimson;
+    border: none;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+#del-btn:active {
+    background-color: #bb1133;
+}
+
+.alert {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  padding-top: 150px; /* Location of the box */
+  text-align: center;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.alert-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 5px solid #0097B2;
+  border-radius: 8px;
+  width: 250px;
+  height: 250px;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.2s;
+  animation-name: animatetop;
+  animation-duration: 0.2s
+  text-align: center;
+}
+
+.alert-content h3{
+    padding: 20px 0 0 0px;
+}
+
+#alert-btn {
+    text-align: center;
+    padding-top: 30px;
+
+}
+
+#alert-btn button{
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    margin: 15px;
+}
+
+#yes {
+    color: white;
+    background-color: crimson;
+    border:none;
+    border-radius: 5px;
+}
+
+#yes:hover {
+    background-color: #bb1133;
+}
+
+#yes:active {
+    background-color: crimson;
+}
+
+
+#footer {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    bottom: 100;
+    margin: 100px auto;
+    color: white;
+    background-color: #0097B2;
+}

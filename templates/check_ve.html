@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vé đã đặt</title>
+    <style>
+        .tb {
+            align-items: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: fit-content;
+            
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            text-align: center;
+            background-color: #f18e8e;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f5c9c9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tb" align="center">
+        <table>
+        <tr>
+            <th>Tên khách hàng</th>
+            <th>Mã vé</th>
+            <th>Số lượng</th>
+            <th>Mã chuyến đi</th>
+            <th>Mã khách hàng</th>
+            <th>Mã thanh toán</th>
+            <th>Trạng thái</th>
+            <th>Tổng tiền</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            {% for field in row %}
+            <td>{{ field }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    
+</body>
+
+</html>

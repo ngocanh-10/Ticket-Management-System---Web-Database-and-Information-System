@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra vé xe đã đặt</title>
+    <link rel="stylesheet" type="text/css" href="../css-u/check_ticket.css">
+</head>
+
+<body>
+    <div id="header1">
+        <a href="home_user.html" style="margin-top:12px;margin-left: 20px;">
+            <img width="auto" height="74" src="../img-u/logo.png" alt="">
+        </a>
+        <div id="menu">
+            <div class="item">
+                <a href="contact_info.html">Giới thiệu</a>
+            </div>
+            <div class="item">
+                <a href="help.html">Hỗ trợ</a>
+            </div>
+            <div class="item">
+                <img id='user-img' width="auto" height="45" src="../img-u/user.png" alt="">
+            </div>
+            <p class="item" style="color: #004AAD; margin-left:0px;">i</p>
+
+        </div>
+    </div>
+    <div style="height: 10px;"></div>
+    <div id="header2">
+        <div id="menu">
+            <div class="item">
+                <a href="home_user.html">Trang chủ</a>
+            </div>
+            <div class="item">
+                <a style="color: black;
+                        background-color: white;
+                        padding: 2px 3px 2px 3px;
+                        border-radius: 3px" href="/vehientai/me/{id}">Kiểm tra đặt xe</a>
+            </div>
+            <div class="item">
+                <a href="contact_info.html">Ưu đãi</a>
+            </div>
+            <div class="item">
+                <a href="contact_info.html">Voucher của tôi</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-head">
+                <a href="acc_info.html">Tài khoản</a>
+            </div>
+            <div class="modal-head">
+                <a href="contact_info.html">Đánh giá</a>
+            </div>
+            <div class="modal-head">
+                <a href="http://127.0.0.1:8000">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter">
+        <input type="button" value="Đã đặt" onclick="check_ticket()">
+        <!-- <input type="button" value="Đã đi" onclick="check_ticket_history()"> -->
+        <!-- <div id="filter3" class="item">Đã hủy</div> -->
+    </div>
+
+    <div id="hientai">
+
+        <table id="user_table1" style="display: none;">
+            <tr>
+                <th>Mã khách hàng</th>
+                <th>Mã chuyến đi</th>
+                <th>Số ghế đặt</th>
+                <th>Mã vé</th>
+                <th>Số lượng</th>
+                <th>Giờ đi</th>
+                <th>Giờ đến</th>
+                <th>Giá chuyến đi</th>
+                <th>Tài xế</th>
+                <th>Mã xe khách</th>
+                <th>Mã lộ trình</th>
+                <th>Mã thanh toán</th>
+                <th></th>
+            </tr>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    {% for field in row %}
+                    <td>{{ field }}</td>
+                    {% endfor %}
+
+                    {% set current_date = now().date() %}
+
+                    {% if row[5] == current_date %}
+                    <td><button id="12345" onclick="huy(row[1], row[2], row[3], row[4], row[7], row[11])">Hủy vé</button></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+
+    </div>
+
+
+
+
+    <div id="alert" class="alert">
+        <div class="alert-content">
+            <h3>Bạn có chắc chắn muốn hủy vé?</h3>
+            <p style="padding: 20px 30px 10px 30px;text-align: left;">Nếu bạn đã thanh toán, chúng tôi sẽ hoàn trả tiền
+                vào tài khoản của bạn:</p>
+            <p style="padding-top:10px">TEN TAI KHOAN</p>
+            <p style="padding-top:10px">00126264780</p>
+            <div id="alert-btn">
+                <button id="close-btn">Không</button>
+                <button id="yes">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js-u/check_ticket.js"></script>
+
+</body>
+
+</html>

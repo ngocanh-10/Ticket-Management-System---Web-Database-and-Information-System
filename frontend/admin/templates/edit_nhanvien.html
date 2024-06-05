@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sửa Thông Tin Nhân Viên</title>
+</head>
+<body>
+    <h3>Sửa thông tin nhân viên:</h3>
+    <form method="post" action="/edit_nv">
+        <table>
+            <tr>
+                <th><label for="maNhanVien">Mã nhân viên:</label></th>
+                <td><input id="ID" type="number" name="maNhanVien" id="maNhanVien" required></td>
+            </tr>
+            <tr>
+                <th><label for="tenNhanVien">Họ tên:</label></th>
+                <td><input type="text" name="tenNhanVien" id="tenNhanVien" required></td>
+            </tr>
+            <tr>
+                <th><label for="chucVu">Chức vụ:</label></th>
+                <td><input type="text" name="chucVu" id="chucVu" required></td>
+            </tr>
+            <tr>
+                <th><label for="gioiTinh">Giới tính:</label></th>
+                <td><input type="text" name="gioiTinh" id="gioiTinh" required></td>
+            </tr>
+            <tr>
+                <th><label for="email">Email:</label></th>
+                <td><input type="text" name="email" id="email" required></td>
+            </tr>
+            <tr>
+                <th><label for="soDienThoai_KH">Số điện thoại:</label></th>
+                <td><input type="number" name="soDienThoai_KH" required></td>
+            </tr>
+            <tr>
+                <th><label for="ngaySinh">Ngày sinh:</label></th>
+                <td><input type="text" name="ngaySinh" required></td>
+            </tr>
+            <tr>
+                <th><label for="diaChi">Địa chỉ:</label></th>
+                <td><input type="text" name="diaChi" required></td>
+            </tr>
+            <tr>
+                <th><label for="luong">Lương:</label></th>
+                <td><input type="number" name="luong" required></td>
+            </tr>
+            <tr>
+                <th><label for="matKhau">Mật khẩu:</label></th>
+                <td><input type="text" name="matKhau" id="matKhau" required></td>
+            </tr>
+
+        </table>
+        
+        <div id="alert-btn">
+            <button id="close-btn">Hủy</button>
+            <button id="yes" type="submit">Lưu</button>
+        </div>
+
+        <script>
+            const id = localStorage.getItem('userid')
+            document.getElementById('ID').value = id    
+        </script>
+    </form>
+</body>
+</html>
